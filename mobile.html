@@ -121,35 +121,44 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: white;
-            padding: 20px 24px env(safe-area-inset-bottom);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            background: var(--charcoal); /* 다크 모드 톤으로 변경하여 대비감 확보 */
+            padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
             z-index: 100;
             border-radius: 25px 25px 0 0;
         }
 
         .email-form {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            width: 100%;
         }
 
         input {
             flex: 1;
-            background: #f8f9fa;
-            border: 1px solid #eee;
-            padding: 16px 20px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 14px 18px;
+            border-radius: 12px;
             font-size: 1rem;
             outline: none;
+            color: white;
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         button.submit {
-            background: var(--charcoal);
-            color: white;
+            background: var(--sage); /* 로고와 어울리는 세이지 그린 포인트 */
+            color: var(--charcoal);
             border: none;
-            padding: 0 25px;
-            border-radius: 15px;
-            font-weight: 600;
+            padding: 0 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 4vw, 1.1rem); /* 가변 폰트 사이즈로 한 줄 유지 */
+            white-space: nowrap; /* 글자 줄바꿈 방지 */
+            min-width: fit-content;
         }
 
         /* Texture Gallery Section */
