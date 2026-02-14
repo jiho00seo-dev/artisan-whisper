@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan's Whisper | 아티잔의 속삭임 - 취향의 발견</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #2D3436;
+            --sage: #8EE4AF;
+            --sand: #FDFCFB;
+            --glass: rgba(255, 255, 255, 0.4);
+            --border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background-color: var(--sand);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            background: radial-gradient(circle at top left, #fdfcfb 0%, #e2d1c3 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--sage);
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        .blob-1 { top: -100px; right: -100px; }
+        .blob-2 { bottom: -100px; left: -100px; }
+
+        .logo-mark {
+            margin-bottom: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .korean-title {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #636e72;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* Manifesto Section */
+        .manifesto {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .manifesto p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3436;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .manifesto span {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #b2bec3;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Peek Section */
+        .featured-peek {
+            background: white;
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .featured-peek img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .peek-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .peek-content p {
+            font-size: 0.95rem;
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .peek-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #f1f2f6;
+            padding: 4px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #a4b0be;
+        }
+
+        /* Forms */
+        .input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            background: white;
+            padding: 6px;
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 100px;
+            font-size: 1rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 100px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #000;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #636e72;
+            border: 1px solid #dfe6e9;
+            padding: 12px 25px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--charcoal);
+            color: var(--charcoal);
+        }
+
+        /* Gallery Overlay */
+        #gallery-overlay {
+            display: none;
+            opacity: 0;
+            transition: var(--transition);
+            margin-top: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1/1;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .glass-panel { padding: 40px 20px; }
+            .featured-peek { flex-direction: column; text-align: center; }
+            .featured-peek img { width: 100%; height: 200px; }
+            .input-group { flex-direction: column; background: transparent; box-shadow: none; border: none; }
+            input { background: white; margin-bottom: 10px; width: 100%; border: 1px solid #eee; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="glass-panel" id="main-panel">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+
+            <div class="logo-mark">
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 70C56.5685 70 70 56.5685 70 40C70 23.4315 56.5685 10 40 10C23.4315 10 10 23.4315 10 40C10 56.5685 23.4315 70 40 70Z" stroke="#2D3436" stroke-width="2.5"/>
+                    <path d="M62 62L85 85M85 85L92 88L88 92L85 85Z" stroke="#2D3436" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="35" y="35" width="10" height="10" stroke="#8EE4AF" stroke-width="2" rx="1"/>
+                </svg>
+            </div>
+
+            <h1>Artisan's Whisper</h1>
+            <span class="korean-title">아티잔의 속삭임</span>
+
+            <!-- #2 The Manifesto -->
+            <div class="manifesto">
+                <p>
+                    "우리는 단순히 상품을 찾지 않습니다. <br>
+                    일주일에 40시간 동안 1,000명의 메이커를 뒤져 <br>
+                    그중 영혼이 담긴 단 1개의 작품만을 속삭입니다."
+                </p>
+                <span>THE 0.1% CURATION RULE</span>
+            </div>
+
+            <!-- #1 The Featured Peek -->
+            <div class="featured-peek">
+                <img src="https://image.idus.com/image/files/f63ff0cf8ddc45aeae244e023bda97a3.jpg" alt="Monitree">
+                <div class="peek-content">
+                    <div class="peek-badge">ISSUE #1 PREVIEW</div>
+                    <h3>모니터 위에서 자라는 작은 숲</h3>
+                    <p>"차가운 모니터 가장자리를 따라 자라나는 초록빛 생명력. 당신의 시선 끝에 늘 숲이 머물기를."</p>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email-input" placeholder="이메일 주소를 입력하세요">
+                <button class="btn-primary">속삭임 듣기</button>
+            </div>
+
+            <button class="btn-secondary" id="explore-btn">당신의 공간을 채울 영감의 질감들</button>
+
+            <!-- #3 The Gallery (Hidden initially) -->
+            <div id="gallery-overlay">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://image.idus.com/image/files/5811a994376f464099da489cc38fdc7b.png" alt="Incense Holder">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://image.idus.com/image/files/ef3b2aa48abe4a2ca54426245739a002.jpg" alt="Soban Tray">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=500&auto=format&fit=crop" alt="Desk setup">
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.8rem; color: #b2bec3;">우리가 사랑하는 무드와 질감들</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const exploreBtn = document.getElementById('explore-btn');
+        const galleryOverlay = document.getElementById('gallery-overlay');
+
+        exploreBtn.addEventListener('click', () => {
+            galleryOverlay.style.display = 'block';
+            setTimeout(() => {
+                galleryOverlay.style.opacity = '1';
+                exploreBtn.style.display = 'none';
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 10);
+        });
+    </script>
+
+</body>
+</html>
