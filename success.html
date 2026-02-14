@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환영합니다 | Artisan's Whisper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #2D3436;
+            --sage: #8EE4AF;
+            --sand: #FDFCFB;
+            --glass: rgba(255, 255, 255, 0.4);
+            --border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background-color: var(--sand);
+            color: var(--charcoal);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top left, #fdfcfb 0%, #e2d1c3 100%);
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .check-mark {
+            width: 80px;
+            height: 80px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--charcoal);
+            font-size: 2rem;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 15px; }
+        p { font-size: 1.1rem; color: #636e72; line-height: 1.6; margin-bottom: 30px; font-weight: 300; }
+
+        .btn-home {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--charcoal);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover { background: #000; transform: translateY(-2px); }
+
+        .referral-box {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .referral-box h4 { font-size: 0.9rem; color: #b2bec3; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <div class="check-mark">✓</div>
+        <h1>속삭임을 들을 준비가 되셨나요?</h1>
+        <p>
+            구독해 주셔서 감사합니다. <br>
+            이제 전 세계 아티잔의 숨겨진 이야기들이 <br>
+            매주 금요일 당신의 메일함으로 찾아갑니다.
+        </p>
+        
+        <a href="index.html" class="btn-home">홈으로 돌아가기</a>
+
+        <div class="referral-box">
+            <h4>Spread the Whisper</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">친구에게 이 페이지를 공유하고 함께 영감을 나누세요.</p>
+        </div>
+    </div>
+
+</body>
+</html>
