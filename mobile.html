@@ -269,9 +269,9 @@
 
         <div class="category-tabs">
             <button class="tab-btn active" onclick="loadProducts('all')">전체</button>
-            <button class="tab-btn" onclick="loadProducts('men30')">서재</button>
-            <button class="tab-btn" onclick="loadProducts('natural')">자연</button>
-            <button class="tab-btn" onclick="loadProducts('gift')">선물</button>
+            <button class="tab-btn" onclick="loadProducts('men30')">영감의 도구</button>
+            <button class="tab-btn" onclick="loadProducts('natural')">자연의 질감</button>
+            <button class="tab-btn" onclick="loadProducts('gift')">사려 깊은 마음</button>
         </div>
 
         <div id="product-display">
@@ -327,7 +327,7 @@
         }
 
         function getCategoryLabel(persona) {
-            const labels = { 'all': '전체', 'men30': '서재', 'natural': '자연', 'gift': '선물' };
+            const labels = { 'all': '전체', 'men30': '영감의 도구', 'natural': '자연의 질감', 'gift': '사려 깊은 마음' };
             return labels[persona];
         }
 
