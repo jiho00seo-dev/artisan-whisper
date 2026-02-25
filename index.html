@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisan's Whisper | 아티잔의 속삭임 - 취향의 발견</title>
+    <title>장인의 갈무리 | Artisan Archive - 취향의 발견</title>
     <script>
         // Device Detection & Redirection
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -18,12 +18,16 @@
         rel="stylesheet">
     <style>
         :root {
+            --brand: #634235;
+            /* Chocolate / Deep Earth */
+            --brand-light: #B87333;
+            /* Copper / Amber */
             --charcoal: #2D3436;
-            --sage: #8EE4AF;
-            --sand: #FDFCFB;
-            --glass: rgba(255, 255, 255, 0.4);
-            --border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            --sand: #FAF9F6;
+            /* Off-white Parchment */
+            --glass: rgba(255, 255, 255, 0.75);
+            --border: rgba(99, 66, 53, 0.15);
+            --shadow: 0 40px 80px rgba(99, 66, 53, 0.12);
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -70,9 +74,9 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            background: var(--sage);
+            background: var(--brand-light);
             filter: blur(80px);
-            opacity: 0.2;
+            opacity: 0.15;
             z-index: -1;
             border-radius: 50%;
         }
@@ -264,7 +268,7 @@
         }
 
         .shop-title svg {
-            color: var(--sage);
+            color: var(--brand);
         }
 
         .persona-chips {
@@ -459,21 +463,21 @@
                         stroke="#2D3436" stroke-width="2.5" />
                     <path d="M62 62L85 85M85 85L92 88L88 92L85 85Z" stroke="#2D3436" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round" />
-                    <rect x="35" y="35" width="10" height="10" stroke="#8EE4AF" stroke-width="2" rx="1" />
+                    <rect x="35" y="35" width="10" height="10" stroke="#634235" stroke-width="2" rx="1" />
                 </svg>
             </div>
 
-            <h1>Artisan's Whisper</h1>
-            <span class="korean-title">아티잔의 속삭임</span>
+            <h1>장인의 갈무리</h1>
+            <span class="korean-title">Artisan Archive</span>
 
             <!-- #2 The Manifesto -->
             <div class="manifesto">
                 <p>
-                    "우리는 단순히 상품을 찾지 않습니다. <br>
-                    일주일에 40시간 동안 1,000명의 메이커를 뒤져 <br>
-                    그중 영혼이 담긴 단 1개의 작품만을 속삭입니다."
+                    "공산품으로는 채울 수 없는 단 하나의 비정형 미학. <br>
+                    나를 위한 보상이자, <br>
+                    소중한 이를 향한 사려 깊은 존중을 제안합니다."
                 </p>
-                <span>THE 0.1% CURATION RULE</span>
+                <span>장인의 숨결이 닿은 0.1%의 갈무리</span>
             </div>
 
             <!-- #1 The Featured Peek -->
@@ -490,7 +494,7 @@
             </div>
 
             <div class="input-group">
-                <input type="email" id="email-input-pc" placeholder="이메일 주소를 입력하세요">
+                <input type="email" id="email-input-pc" placeholder="우리가 발견한 '진짜'의 가치를 메일함으로 보내드릴게요">
                 <button class="btn-primary" id="subscribe-btn-pc">속삭임 듣기</button>
             </div>
 
@@ -501,14 +505,14 @@
                         <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                         <line x1="7" y1="7" x2="7.01" y2="7"></line>
                     </svg>
-                    당신의 취향을 위한 정교한 제안
+                    장인의 손길이 머문 정교한 제안
                 </div>
 
                 <div class="persona-chips" id="persona-chips">
-                    <div class="chip active" data-persona="all">#전체</div>
-                    <div class="chip" data-persona="men30">#30대_남성</div>
-                    <div class="chip" data-persona="natural">#내추럴_감성</div>
-                    <div class="chip" data-persona="gift">#실패하지_않는_선물</div>
+                    <div class="chip active" data-persona="all">#모든_아티잔의_기억</div>
+                    <div class="chip" data-persona="men30">#서재를_사랑하는_이들에게</div>
+                    <div class="chip" data-persona="natural">#살아있는_질감을_곁에_두는_법</div>
+                    <div class="chip" data-persona="gift">#소중한_사람을_위한_정중한_선택</div>
                 </div>
 
                 <div class="curation-grid" id="curation-grid">

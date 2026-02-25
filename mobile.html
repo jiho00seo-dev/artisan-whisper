@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisan's Whisper | 아티잔의 속삭임 - 취향의 발견 (Mobile)</title>
+    <title>장인의 갈무리 | Artisan Archive (Mobile)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
+            --brand: #634235;
+            /* Chocolate / Deep Earth */
+            --brand-light: #B87333;
+            /* Copper / Amber */
             --charcoal: #2D3436;
-            --sage: #8EE4AF;
-            --sand: #FDFCFB;
-            --glass: rgba(255, 255, 255, 0.6);
-            --border: rgba(255, 255, 255, 0.3);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            --transition: all 0.4s ease;
+            --sand: #FAF9F6;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(99, 66, 53, 0.1);
+            --shadow: 0 15px 45px rgba(99, 66, 53, 0.08);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         body {
             font-family: 'Outfit', 'Noto Sans KR', sans-serif;
-            background: #FDFCFB;
+            background: var(--sand);
             color: var(--charcoal);
             line-height: 1.6;
+            background: radial-gradient(circle at top left, #fdfcfb 0%, #f3e6dd 100%);
         }
 
         /* Mobile Layout */
         .mobile-wrapper {
-            padding: 40px 24px;
+            padding: 50px 24px 140px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -38,94 +50,153 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .logo-mark {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(99, 66, 53, 0.1));
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--brand);
+            letter-spacing: -0.5px;
         }
 
         .korean-title {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            color: #636e72;
-            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
+            color: var(--brand-light);
+            font-weight: 400;
+            text-transform: uppercase;
         }
 
-        /* The Manifesto Box - Mobile Optimized */
+        /* The Manifesto Box - Premium Glassmorphism */
         .manifesto-card {
-            background: #f1f2f6;
-            border-radius: 20px;
-            padding: 24px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
         }
 
         .manifesto-card p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-style: italic;
-            color: var(--charcoal);
+            color: var(--brand);
+            line-height: 1.8;
+            font-weight: 400;
         }
 
-        /* The Peek - Card Style */
+        /* The Peek - Premium Card Style */
         .peek-card {
             width: 100%;
             background: white;
-            border-radius: 30px;
+            border-radius: 28px;
             overflow: hidden;
             box-shadow: var(--shadow);
             margin-bottom: 40px;
-            border: 1px solid #f1f1f1;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
         }
 
         .peek-image {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
         }
 
         .peek-info {
-            padding: 25px;
+            padding: 28px;
         }
 
         .badge {
-            font-size: 0.65rem;
-            background: var(--sage);
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 0.7rem;
+            background: var(--brand-light);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 12px;
             display: inline-block;
+            letter-spacing: 0.5px;
         }
 
         .peek-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--brand);
         }
 
         .peek-info p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #636e72;
             font-weight: 300;
+            line-height: 1.7;
         }
 
-        /* Fixed Bottom Subscription Bar */
+        /* Texture Gallery Section */
+        .gallery-header {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+            padding-left: 5px;
+        }
+
+        .gallery-header h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 18px;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            min-width: 220px;
+            height: 220px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #eee;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fixed Bottom Subscription Bar - Deep Brown Style */
         .bottom-bar {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--charcoal); /* 다크 모드 톤으로 변경하여 대비감 확보 */
-            padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--brand);
+            padding: 18px 20px;
+            box-shadow: 0 20px 50px rgba(63, 42, 33, 0.3);
             z-index: 100;
-            border-radius: 25px 25px 0 0;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .email-form {
@@ -136,139 +207,111 @@
 
         input {
             flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 14px 18px;
             border-radius: 12px;
             font-size: 1rem;
             outline: none;
             color: white;
+            font-family: inherit;
         }
-        
+
         input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
         }
 
         button.submit {
-            background: var(--sage); /* 로고와 어울리는 세이지 그린 포인트 */
-            color: var(--charcoal);
+            background: var(--brand-light);
+            color: white;
             border: none;
-            padding: 0 20px;
+            padding: 0 24px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: clamp(0.9rem, 4vw, 1.1rem); /* 가변 폰트 사이즈로 한 줄 유지 */
-            white-space: nowrap; /* 글자 줄바꿈 방지 */
-            min-width: fit-content;
+            font-size: 1rem;
+            min-width: 80px;
+            transition: var(--transition);
         }
 
-        /* Texture Gallery Section */
-        .gallery-header {
-            width: 100%;
-            text-align: left;
-            margin-bottom: 15px;
-            padding-left: 5px;
+        button.submit:active {
+            transform: scale(0.96);
         }
 
-        .gallery-header h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #b2bec3;
-        }
-
-        .gallery-scroll {
-            display: flex;
-            gap: 15px;
-            width: 100%;
-            overflow-x: auto;
-            padding-bottom: 100px; /* Space for bottom bar */
-            scrollbar-width: none;
-        }
-
-        .gallery-scroll::-webkit-scrollbar { display: none; }
-
-        .gallery-item {
-            min-width: 200px;
-            height: 200px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #eee;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Back to top / spacer */
+        /* Footer */
         .footer-note {
             text-align: center;
             font-size: 0.75rem;
             color: #b2bec3;
-            margin-top: 20px;
-            margin-bottom: 120px;
+            margin-top: 40px;
         }
-
     </style>
 </head>
+
 <body>
 
     <div class="mobile-wrapper">
         <div class="header">
             <div class="logo-mark">
-                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M40 70C56.5685 70 70 56.5685 70 40C70 23.4315 56.5685 10 40 10C23.4315 10 10 23.4315 10 40C10 56.5685 23.4315 70 40 70Z" stroke="#2D3436" stroke-width="2.5"/>
-                    <path d="M62 62L85 85M85 85L92 88L88 92L85 85Z" stroke="#2D3436" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <rect x="35" y="35" width="10" height="10" stroke="#8EE4AF" stroke-width="2" rx="1"/>
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M40 70C56.5685 70 70 56.5685 70 40C70 23.4315 56.5685 10 40 10C23.4315 10 10 23.4315 10 40C10 56.5685 23.4315 70 40 70Z"
+                        stroke="#2D3436" stroke-width="2.5" />
+                    <path d="M62 62L85 85M85 85L92 88L88 92L85 85Z" stroke="#2D3436" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <rect x="35" y="35" width="10" height="10" stroke="#634235" stroke-width="2" rx="1" />
                 </svg>
             </div>
-            <h1>Artisan's Whisper</h1>
-            <div class="korean-title">아티잔의 속삭임</div>
+            <h1>장인의 갈무리</h1>
+            <div class="korean-title">Artisan Archive</div>
         </div>
 
         <div class="manifesto-card">
-            <p>"1,000명의 메이커 중 영혼이 담긴 단 1개의 작품만을 속삭입니다."</p>
+            <p>"공산품으로는 채울 수 없는<br>단 하나의 비정형 미학을 갈무리합니다."</p>
         </div>
 
-        <a href="https://www.idus.com/v2/product/ce494629-4588-4764-a31d-45e58d9ba9a4" target="_blank" style="text-decoration: none; color: inherit; width: 100%;">
+        <a href="junction.html?id=ceramic_tea" style="text-decoration: none; color: inherit; width: 100%;">
             <div class="peek-card">
-                <img src="https://image.idus.com/image/files/f63ff0cf8ddc45aeae244e023bda97a3.jpg" class="peek-image" alt="Monitree">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1200"
+                    class="peek-image" alt="Ceramic Tea">
                 <div class="peek-info">
-                    <div class="badge">ISSUE #1 PREVIEW</div>
-                    <h3>모니터 위에서 자라는 숲</h3>
-                    <p>당신의 시선 끝에 늘 숲이 머물기를. AI 스카우트의 첫 번째 발견.</p>
+                    <div class="badge">WEEKLY SELECTION</div>
+                    <h3>연못 다관 | 비정형의 미학</h3>
+                    <p>똑같은 모양이 하나도 없는, 흙의 숨결을 그대로 담은 다기입니다. 소중한 분께 평온함을 선물하세요.</p>
                 </div>
             </div>
         </a>
 
         <div class="gallery-header">
-            <h4>당신의 공간을 채울 영감의 질감들</h4>
+            <h4>사려 깊은 취향의 질감들</h4>
         </div>
         <div class="gallery-scroll">
             <div class="gallery-item">
-                <img src="https://image.idus.com/image/files/5811a994376f464099da489cc38fdc7b.png" alt="Incense">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=600"
+                    alt="Leather Desk">
             </div>
             <div class="gallery-item">
-                <img src="https://image.idus.com/image/files/ef3b2aa48abe4a2ca54426245739a002.jpg" alt="Soban">
+                <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&q=80&w=600"
+                    alt="Brass Pen">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=500&auto=format&fit=crop" alt="Desk">
+                <img src="https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&q=80&w=600"
+                    alt="Wood Diffuser">
             </div>
         </div>
 
         <div class="footer-note">
-            &copy; 2026 Artisan's Whisper. All rights reserved.
+            &copy; 2026 장인의 갈무리 (Artisan Archive). All rights reserved.
         </div>
     </div>
 
     <!-- Bottom Subscription Bar -->
     <div class="bottom-bar">
         <div class="email-form">
-            <input type="email" id="email-input-mobile" placeholder="이메일을 입력하세요">
-            <button class="submit" id="subscribe-btn-mobile">구독</button>
+            <input type="email" id="email-input-mobile" placeholder="소식지 구독 (이메일)">
+            <button class="submit" id="subscribe-btn-mobile">갈무리</button>
         </div>
     </div>
 
 </body>
+
 </html>
