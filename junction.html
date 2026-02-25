@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan's Bridge | 아티잔의 연결</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #2D3436;
+            --sage: #8EE4AF;
+            --sand: #FDFCFB;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background-color: var(--sand);
+            color: var(--charcoal);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #fdfcfb 0%, #e2d1c3 100%);
+        }
+
+        .bridge-container {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .loader-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(45, 52, 54, 0.1);
+            border-top: 2px solid var(--charcoal);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo-small {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--sage);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #636e72;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: var(--sage);
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bridge-container">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="logo-small">
+                <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+                    <rect x="35" y="35" width="30" height="30" stroke="#8EE4AF" stroke-width="4" rx="4" />
+                </svg>
+            </div>
+        </div>
+        <h1 id="status-title">아티잔의 안목을 연결합니다</h1>
+        <p id="status-desc">선택하신 취향에 꼭 맞는 특별한 제품을 찾았습니다.<br>잠시 후 해당 작가님의 페이지로 이동합니다.</p>
+    </div>
+
+    <script>
+        // Centralized Product Database (Affiliate Links)
+        // Representative J: Change these URLs to your actual        // 상품 ID별 이동할 실제 제휴 링크 (쿠팡 파트너스 등)
+        // 실제 제휴 링크 또는 상품 링크 데이터베이스
+        const productLinks = {
+            "leather_desk": "https://www.idus.com/v2/product/89da9cc8-cf62-40b5-aaed-0edcbe2c3811", // Verified: 가죽 데스크매트
+            "brass_pen": "https://www.idus.com/v2/product/fe0b2faa-7025-4c18-8b1e-89ae57e563d6",    // Verified: 황동 만년필
+            "ceramic_tea": "https://www.idus.com/v2/product/e5d230f2-2375-4afd-a8f3-3e976169f0c6",  // Verified: 수제 다구
+            "linen_apron": "https://www.idus.com/v2/product/ef3b2aa48abe4a2ca54426245739a002", // Placeholder
+            "wood_diffuser": "https://www.coupang.com/vp/products/8439935392?affId=AF0695770", // Applied Representitive's AFID
+            "gold_bookmark": "https://www.idus.com/v2/product/ed286dad-db14-4774-93c6-df53669a7b55" // Verified: 금속 책갈피
+        };
+
+        // Execution Logic
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+            const targetUrl = productLinks[productId] || "https://artisan-whisper.pages.dev";
+
+            // Small delay to let the user feel the "Premium Bridge" vibe
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 1800);
+        };
+    </script>
+</body>
+
+</html>
